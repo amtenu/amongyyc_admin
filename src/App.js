@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Home from "./pages/home/Home";
+import List from "./pages/list/List";
+import Login from "./pages/login/Login";
+import New from "./pages/new/New";
+import Single from "./pages/single/Single";
+import {userInputs,taskInputs} from "./formSource";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route path="login" element={<Login />} />
+            <Route path="users">
+              <Route index element={<List />} />
+              <Route path=":userId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={userInputs} title="Add new User" />}
+              />
+            </Route>
+            <Route path="tasks">
+              <Route index element={<List />} />
+              <Route path=":taskId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={taskInputs} title="Add new Task" />}
+              />
+              </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

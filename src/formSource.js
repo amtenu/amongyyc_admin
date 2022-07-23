@@ -1,45 +1,45 @@
 const  userInputs = [
     {
-      id: 1,
+      id: "name",
       label: "Username",
       type: "text",
       placeholder: "john_doe",
     },
+    // {
+    //   id: "displayName",
+    //   label: "Name and surname",
+    //   type: "text",
+    //   placeholder: "John Doe",
+    // },
     {
-      id: 2,
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
-    },
-    {
-      id: 3,
+      id:"Email",
       label: "Email",
       type: "mail",
       placeholder: "john_doe@gmail.com",
     },
     {
-      id: 4,
+      id:"Phone",
       label: "Phone",
       type: "text",
       placeholder: "+1 234 567 89",
     },
     {
-      id: 5,
+      id:"Password",
       label: "Password",
       type: "password",
     },
     {
-      id: 6,
+      id: "Address",
       label: "Address",
       type: "text",
-      placeholder: "Elton St. 216 NewYork",
+      placeholder: "800 3 St SE 3rd Floor, Calgary, AB T2G 0E7",
     },
-    {
-      id: 7,
-      label: "Country",
-      type: "text",
-      placeholder: "USA",
-    },
+    // {
+    //   id: 7,
+    //   label: "Country",
+    //   type: "text",
+    //   placeholder: "USA",
+    // },
   ];
   
  const taskInputs = [

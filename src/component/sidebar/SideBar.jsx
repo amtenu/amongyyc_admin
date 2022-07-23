@@ -12,9 +12,37 @@ import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 import { Link} from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
+import { useNavigate } from "react-router-dom";
+
+
+import { auth } from "../../firebase";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const SideBar = () => {
+
+
   const {dispatch}=useContext(DarkModeContext)
+  
+  const navigate = useNavigate()
+
+  const signOut = () => {
+    auth.signOut();
+    navigate("/login");
+  }
+
   return (
     <div className="Sidebar">
       <div className="top">
@@ -78,8 +106,10 @@ const SideBar = () => {
             <span>Profile</span>
           </li>
           <li>
-            <ExitToAppIcon className="icon" />
-            <span>Log out</span>
+            <ExitToAppIcon className="icon"  />
+            <span 
+            onClick={signOut}
+            >Log out</span>
           </li>
         </ul>
       </div>

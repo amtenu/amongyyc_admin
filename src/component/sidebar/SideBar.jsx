@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./sideBar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
@@ -11,8 +11,10 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
 import { Link} from "react-router-dom";
+import { DarkModeContext } from "../../context/darkModeContext";
 
 const SideBar = () => {
+  const {dispatch}=useContext(DarkModeContext)
   return (
     <div className="Sidebar">
       <div className="top">
@@ -32,18 +34,22 @@ const SideBar = () => {
             <span>DashBoard</span>
           </li>
           <p className="title">LIST</p>
+          <Link to='users' style={
+            { textDecoration: "none" }}>
           <li>
             <PersonOutlineIcon className="icon" />
-            <span onClick={
-              () => {
-                window.location.href = "/users";
-              }
-            }>Users</span>
+            <span 
+            >Users</span>
           </li>
+          </Link>
+          <Link to='tasks' style={
+            { textDecoration: "none" }}>
+
           <li>
             <TaskIcon className="icon" />
             <span>Tasks</span>
           </li>
+          </Link>
           <li>
             <AddReactionIcon className="icon" />
             <span>Tricksters</span>
@@ -78,9 +84,13 @@ const SideBar = () => {
         </ul>
       </div>
       <div className="bottom">
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
-        <div className="colorOption"></div>
+        <div className="colorOption" 
+        onClick={()=>dispatch({type:"LIGHT"})}>
+        </div>
+        <div className="colorOption"
+        onClick={()=>dispatch({type:"DARK"})}>
+        </div>
+       
       </div>
     </div>
   );

@@ -8,12 +8,17 @@ import Single from "./pages/single/Single";
 import {userInputs,taskInputs} from "./formSource";
 import "./styles/dark.scss";
 import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/AuthContext";
+
 
 
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
   
+  const {currentUser} = useContext(AuthContext);
+
+console.log(currentUser);
   
   return (
 

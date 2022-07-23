@@ -1,9 +1,15 @@
 const  userInputs = [
     {
-      id: "name",
-      label: "Username",
+      id:"name",
+      label: "name",
       type: "text",
       placeholder: "john_doe",
+    },
+    {
+      id:"age",
+      label: "age",
+      type: "number",
+      placeholder: "",
     },
     // {
     //   id: "displayName",
@@ -12,10 +18,15 @@ const  userInputs = [
     //   placeholder: "John Doe",
     // },
     {
-      id:"Email",
-      label: "Email",
-      type: "mail",
+      id:"email",
+      label: "email",
+      type: "email",
       placeholder: "john_doe@gmail.com",
+    },
+    {
+      id:"password",
+      label:"password",
+      type: "password",
     },
     {
       id:"Phone",
@@ -24,16 +35,18 @@ const  userInputs = [
       placeholder: "+1 234 567 89",
     },
     {
-      id:"Password",
-      label: "Password",
-      type: "password",
-    },
-    {
-      id: "Address",
+      id:"address",
       label: "Address",
       type: "text",
-      placeholder: "800 3 St SE 3rd Floor, Calgary, AB T2G 0E7",
-    },
+      placeholder: "",
+    }
+   
+    // {
+    //   id:"Address",
+    //   label: "Address",
+    //   type: "text",
+    //   placeholder: "800 3 St SE 3rd Floor, Calgary, AB T2G 0E7",
+    // },
     // {
     //   id: 7,
     //   label: "Country",

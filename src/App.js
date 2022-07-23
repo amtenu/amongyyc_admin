@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter,Navigate } from "react-router-dom";
 import Home from "./pages/home/Home";
 import List from "./pages/list/List";
 import Login from "./pages/login/Login";
@@ -17,8 +17,13 @@ function App() {
   const { darkMode } = useContext(DarkModeContext);
   
   const {currentUser} = useContext(AuthContext);
+  
+  
 
-console.log(currentUser);
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
+
   
   return (
 
@@ -26,18 +31,19 @@ console.log(currentUser);
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login />} />
+            <Route index element={<RequireAuth><Home /></RequireAuth> } />
+            
             <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
+              <Route index element={<RequireAuth><List /></RequireAuth>} />
+              <Route path=":userId" element={<RequireAuth><Single /></RequireAuth>} />
               <Route
                 path="new"
                 element={<New inputs={userInputs} title="Add new User" />}
               />
             </Route>
             <Route path="tasks">
-              <Route index element={<List />} />
+              <Route index element={<RequireAuth><List /></RequireAuth>} />
               <Route path=":taskId" element={<Single />} />
               <Route
                 path="new"

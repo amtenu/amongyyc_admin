@@ -5,7 +5,10 @@ import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import New from "./pages/new/New";
 import Single from "./pages/single/Single";
-import {userInputs,taskInputs} from "./formSource";
+import {userInputs,taskInputs,
+  tricksterInputs,donationInputs} from "./formSource";
+
+
 import "./styles/dark.scss";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
@@ -48,6 +51,22 @@ function App() {
               <Route
                 path="new"
                 element={<New inputs={taskInputs} title="Add new Task" />}
+              />
+              </Route>
+              <Route path="tricksters">
+              <Route index element={<RequireAuth><List /></RequireAuth>} />
+              <Route path=":tricksterId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={tricksterInputs} title="Add new trickster" />}
+              />
+              </Route>
+              <Route path="donations">
+              <Route index element={<RequireAuth><List /></RequireAuth>} />
+              <Route path=":donationId" element={<Single />} />
+              <Route
+                path="new"
+                element={<New inputs={donationInputs} title="Add a donation account" />}
               />
               </Route>
           </Route>

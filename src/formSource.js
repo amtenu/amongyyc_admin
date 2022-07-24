@@ -57,49 +57,93 @@ const  userInputs = [
   
  const taskInputs = [
     {
-      id: 1,
-      label: "type",
-      title: "text",
-      placeholder: "imgupload",
-    },
-    {
-      id: 2,
+      id:"title",
       label: "Title",
-      type: "text",
-      placeholder: "Bow Building upload",
+      title: "text",
+      placeholder: "",
     },
     {
-      id: 3,
+      id: "type",
+      label: "Type",
+      type: "text",
+      placeholder: "type",
+    },
+    {
+      id: "description",
       label: "Description",
       type: "text",
       placeholder: "Description",
     },
     {
-      id: 4,
+      id: "address",
       label: "Address",
       type: "text",
       placeholder: "Address",
     },
     {
-      id: 5,
+      id: "taskLatitude",
       label: "Latitude",
       type: "text",
       placeholder: "Latitude",
     },
     {    
-      id: 6,
+      id: "taskLongitude",
       label: "Longitude",
       type: "text",
       placeholder: "Longitude",
     },
     {
-      id: 7,
+      id:"region",
       label: "Region",
       type: "text",
       placeholder: "Region",
     },
+    {
+      id:"taskWeek",
+      label: "Week",
+      type: "text",
+      placeholder: "Week",
+    }
+
+
     
   ];
 
+  const tricksterInputs = [
+    {
+      id:"name",
+      label: "name",
+      type: "text",
+      placeholder: "john_doe",
+    },
+    {
+      id:"uri",
+      label: "uri",
+      type: "text",
+      placeholder: "",
+    },
+    {
+      id:"activeTimes",
+      label: "activeTimes",
+      type: "time",
+      placeholder: "",
+    }
+  ];
 
-    export  {userInputs,taskInputs};
+  const donationInputs = [
+    {
+      id:"CharityOrgName",
+      label: "CharityOrgName",
+      type: "text",
+      placeholder: "",
+    },
+    {
+      id:"CharityOrgAddress",
+      label: "CharityOrgAddress",
+      type: "text",
+      placeholder: "",
+    },
+  ];
+
+
+    export  {userInputs,taskInputs,tricksterInputs,donationInputs};

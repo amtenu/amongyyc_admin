@@ -10,47 +10,27 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import AddReactionIcon from "@mui/icons-material/AddReaction";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useNavigate } from "react-router-dom";
 
-
 import { auth } from "../../firebase";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const SideBar = () => {
+  const { dispatch } = useContext(DarkModeContext);
 
-
-  const {dispatch}=useContext(DarkModeContext)
-  
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const signOut = () => {
     auth.signOut();
     navigate("/login");
-  }
+  };
 
   return (
     <div className="Sidebar">
       <div className="top">
-        <Link to="/" style={
-
-          { textDecoration: "none" }
-        }>
-        <span className="logo">Among yyc</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">Among yyc</span>
         </Link>
       </div>
       <hr />
@@ -62,21 +42,17 @@ const SideBar = () => {
             <span>DashBoard</span>
           </li>
           <p className="title">LIST</p>
-          <Link to='users' style={
-            { textDecoration: "none" }}>
-          <li>
-            <PersonOutlineIcon className="icon" />
-            <span 
-            >Users</span>
-          </li>
+          <Link to="users" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span>Users</span>
+            </li>
           </Link>
-          <Link to='tasks' style={
-            { textDecoration: "none" }}>
-
-          <li>
-            <TaskIcon className="icon" />
-            <span>Tasks</span>
-          </li>
+          <Link to="tasks" style={{ textDecoration: "none" }}>
+            <li>
+              <TaskIcon className="icon" />
+              <span>Tasks</span>
+            </li>
           </Link>
           <li>
             <AddReactionIcon className="icon" />
@@ -106,21 +82,20 @@ const SideBar = () => {
             <span>Profile</span>
           </li>
           <li>
-            <ExitToAppIcon className="icon"  />
-            <span 
-            onClick={signOut}
-            >Log out</span>
+            <ExitToAppIcon className="icon" />
+            <span onClick={signOut}>Log out</span>
           </li>
         </ul>
       </div>
       <div className="bottom">
-        <div className="colorOption" 
-        onClick={()=>dispatch({type:"LIGHT"})}>
-        </div>
-        <div className="colorOption"
-        onClick={()=>dispatch({type:"DARK"})}>
-        </div>
-       
+        <div
+          className="colorOption"
+          onClick={() => dispatch({ type: "LIGHT" })}
+        ></div>
+        <div
+          className="colorOption"
+          onClick={() => dispatch({ type: "DARK" })}
+        ></div>
       </div>
     </div>
   );

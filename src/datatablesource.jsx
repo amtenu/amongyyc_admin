@@ -123,3 +123,98 @@ export const userColumns = [
     //   age: 65,
     // },
   ];
+
+  export const taskColumns = [
+    { field: "id", headerName: "Id", width: 70 },
+    {
+      field: "type",
+      headerName: "Type",
+      width: 250,
+      // renderCell: (params) => {
+      //   return (
+      //     <div className="cellWithImg">
+      //       <img className="cellImg"  alt='' />
+      //       {params.row.username}
+      //     </div>
+      //   );
+      // },
+    },
+    {
+      field: "title",
+      headerName: "Title",
+      width: 230,
+    },
+    {
+      field: "description",
+      headerName: "Description",
+      width: 100,
+    },
+    {
+      field: "address",
+      headerName: "Address",
+      width: 160,
+
+    },
+    {
+      field: "region",
+      headerName: "Region",
+      width: 160,
+    },
+    {
+      field: "taskLatitude",
+      headerName: "Latitude",
+      width: 160,
+    },
+    {
+      field: "taskLongitude",
+      headerName: "Longitude",
+      width: 160,
+    },
+  ];
+
+
+  export const tricksterColumns = [
+    { field: "id", headerName: "Id", width: 70 },
+    {
+      field:"name",
+      headerName: "Name",
+      width: 250,
+    },
+    {
+      uri: "img",
+      headerName: "Image",
+      width: 230,
+       renderCell: (params) => {
+        return (
+          <div className="cellWithImg">
+           <img className="cellImg"  alt='' />
+           {params.row.username}
+        </div>
+        );
+      }
+    },
+    {
+      field:"activeTimes",
+      headerName: "Active Times",
+      width: 100,
+    },
+  ]
+
+  export const donationColumns = [
+    { field: "id", headerName: "Id", width: 70 },
+    {
+      field: "donatedTo",
+      headerName: "Donated To",
+      width: 250,
+    },
+    {
+      field: "donatedBy",
+      headerName: "Donated By",
+      width: 230,
+    },
+    {
+      field: "donation",
+      headerName: "Donation",
+      width: 100,
+    },
+  ]
